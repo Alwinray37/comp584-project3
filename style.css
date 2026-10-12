@@ -1,0 +1,155 @@
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after
+ */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family: Arial, Geneva, sans-serif;
+	background: linear-gradient(#f3eedf, #e7fffd);
+	min-height: 100vh;
+	color: #17324d;
+}
+.wrapper {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 0;
+}
+
+h1 {
+	text-align: center;
+	color: #0e6072;
+	margin-bottom: 1rem;
+}
+
+div img {
+	width: 100%;
+	/* max-width: 225px; */
+}
+
+.country-header {
+	width: 100%;
+	background: #0e6072;
+	color: white;
+	padding: 1rem;
+	text-align: center;
+	outline: 2px solid black;
+}
+
+.row {
+	display: flex;
+	flex-flow: column wrap;
+}
+
+[class*="col-"] {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	flex: 0 0 100%;
+	text-align: center;
+	/* padding: 2rem; */
+	outline: 2px solid black;
+}
+
+h3, p{
+	padding: 1rem;
+}
+.link-btn{
+	margin-top: auto;
+}
+
+.col-1 { background-color: #d9f1f2; }
+.col-2 { background-color: #fff3d6; }
+.col-3 { background-color: #e1f0dc; }
+.col-4 { background-color: #f8e2b5; }
+.col-5 { background-color: #f8d9c4; }
+.col-6 { background-color: #e5e0f4; }
+
+/* tablet view */
+@media only screen and (min-width: 480px) {
+	.row {
+		flex-flow: row wrap;
+	}
+
+	.col-1,
+	.col-2{
+		flex: 50%;
+	}
+
+	.row-5 .col-5{
+		flex: 50%;
+	}
+	.row-5 .med{
+		flex: 100%;
+	}
+	/* changing the order in row 5 */
+	.row-5 > :nth-child(1) { order: 1; } 
+
+
+	.row-6 .col-6 {
+		flex: 30%;
+	}
+}
+/* desktop view */
+@media only screen and (min-width: 770px) {
+	.row-1 .col-1,
+	.row-3 .col-3{
+		flex: 25%;
+	}
+
+	.row-2 .col-2{
+		flex: 50%;
+	}
+
+	.row-3 .large{
+		flex: 75%;
+	}
+
+	.row-4 .col-4 {
+		flex: 100%;
+	}
+
+	.row-5 > :nth-child(1) {
+		order: initial;
+	}
+	.row-5 .col-5{
+		flex: 1;
+	}
+	.row-5 .med{
+		flex: 2;
+	}
+
+	.row-6 .col-6 {
+		flex: 25%;
+	}
+}
+
+/* link */
+a{
+	display: block;
+	background-color: lightseagreen;
+	color: white;
+	font-weight: bold;
+	padding: 5px 10px;
+	text-decoration: none;
+	outline: 2px solid black;
+	transition: 0.2s ease-in-out;
+}
+a:hover {
+	cursor: pointer;
+	box-shadow: 4px 4px 0 2px black;
+	transform: scale(1.02);
+}
